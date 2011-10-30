@@ -52,4 +52,10 @@ public class test {
 		}
 
 	}
+  public void randomizeMap() {
+    for (int i = 1; i < 5; i++)
+      for (int j = 5 - i; j > 0; j--)
+        insertShip(i);
+  }
+   
 }
