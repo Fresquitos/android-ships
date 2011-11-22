@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    >
+    <Button
+        android:id="@+id/buttonstart"
+        style="@style/ButtonText"
+        android:background="@drawable/button_start"
+        android:layout_centerInParent="true"
+        android:text="Start"
+        android:onClick="main_to_choose"
+       
+        />
+
+    <TextView
+        android:id="@+id/logo"
+        style="@style/FirstText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="42dp"
+        android:text="BattleShips" />
+
+</RelativeLayout>
