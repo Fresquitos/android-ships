@@ -27,4 +27,8 @@ public class TheShipsActivity extends Activity {
     {
     	setContentView(R.layout.difficultychoose);
     }
+    public void statistics(View w)
+    {
+    	setContentView(R.layout.statistics);
+    }
 } 

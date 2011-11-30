@@ -2,17 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" 
-    >
-    <Button
-        android:id="@+id/buttonstart"
-        style="@style/ButtonText"
-        android:background="@drawable/button_start"
-        android:layout_centerInParent="true"
-        android:text="Start"
-        android:onClick="main_to_choose"
-       
-        />
+    android:orientation="vertical" >
 
     <TextView
         android:id="@+id/logo"
@@ -21,5 +11,25 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="42dp"
         android:text="BattleShips" />
+
+    <Button
+        android:id="@+id/buttonstart"
+        style="@style/ButtonText"
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/button_start"
+        android:onClick="main_to_choose"
+        android:text="Start" />
+
+    <Button
+        android:id="@+id/Statystyki"
+        style="@style/ButtonText"
+        android:layout_alignLeft="@+id/buttonstart"
+        android:layout_below="@+id/buttonstart"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_start"
+        android:onClick="statistics"
+        android:text="Statystyki" />
 
 </RelativeLayout>
