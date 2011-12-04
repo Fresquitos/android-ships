@@ -1,6 +1,9 @@
 package com.theships;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -13,6 +16,7 @@ public class TheShipsActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -24,6 +28,7 @@ public class TheShipsActivity extends Activity {
 	public void main_to_choose(View w) {
 		currentview = R.layout.gamerchoose;
 		setContentView(currentview);
+		
 	}
 
 	public void singleplayer_to_difficulty(View w) {
@@ -52,9 +57,27 @@ public class TheShipsActivity extends Activity {
 			setContentView(currentview);
 			break;
 		case R.layout.main :
-			finish();
+			AlertDialog.Builder bilder = new AlertDialog.Builder(this);
+			bilder.setMessage("Are you sure you want to exit?").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int id) {
+					TheShipsActivity.this.finish();
+				}
+			}).setNegativeButton("No", new DialogInterface.OnClickListener(){
+				public void onClick(DialogInterface dialog, int id) {
+					dialog.cancel();
+				}
+			});
+			AlertDialog alert = bilder.create();
+			alert.show();
 			break;
 		}
 		return;
 	}
 }
+
+
+
+/**
+Intent myIntent = new Intent(TheShipsActivity.this, BattleShipsGame.class);
+TheShipsActivity.this.startActivity(myIntent);
+*/
