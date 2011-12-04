@@ -3,8 +3,10 @@ package com.theships;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -24,6 +26,21 @@ public class TheShipsActivity extends Activity {
 				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		setContentView(R.layout.main);
 	}
+	
+	public void koniecgry() {
+		AlertDialog.Builder bilder = new AlertDialog.Builder(this);
+		bilder.setMessage("Are you sure you want to exit?").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id) {
+				TheShipsActivity.this.finish();
+			}
+		}).setNegativeButton("No", new DialogInterface.OnClickListener(){
+			public void onClick(DialogInterface dialog, int id) {
+				dialog.cancel();
+			}
+		});
+		AlertDialog alert = bilder.create();
+		alert.show();
+	}
 
 	public void main_to_choose(View w) {
 		currentview = R.layout.gamerchoose;
@@ -42,6 +59,24 @@ public class TheShipsActivity extends Activity {
 	}
 	
 	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.main_menu, menu);
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem Item) {
+		switch(Item.getItemId()) {
+		case R.id.m_koniec :
+			koniecgry();
+			return true;
+		default:
+			return super.onOptionsItemSelected(Item);
+		}
+	}
+	
+	@Override
 	public void onBackPressed() {
 		switch(currentview) {
 		case R.layout.gamerchoose :
@@ -57,18 +92,7 @@ public class TheShipsActivity extends Activity {
 			setContentView(currentview);
 			break;
 		case R.layout.main :
-			AlertDialog.Builder bilder = new AlertDialog.Builder(this);
-			bilder.setMessage("Are you sure you want to exit?").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int id) {
-					TheShipsActivity.this.finish();
-				}
-			}).setNegativeButton("No", new DialogInterface.OnClickListener(){
-				public void onClick(DialogInterface dialog, int id) {
-					dialog.cancel();
-				}
-			});
-			AlertDialog alert = bilder.create();
-			alert.show();
+			koniecgry();
 			break;
 		}
 		return;
