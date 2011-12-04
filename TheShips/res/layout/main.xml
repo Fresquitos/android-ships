@@ -21,9 +21,9 @@
         android:background="@drawable/button_start"
         android:onClick="main_to_choose"
         android:text="Start" />
-
+
     <Button
-        android:id="@+id/Statystyki"
+        android:id="@+id/button_statystyki"
         style="@style/ButtonText"
         android:layout_alignLeft="@+id/buttonstart"
         android:layout_below="@+id/buttonstart"
