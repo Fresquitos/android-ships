@@ -13,12 +13,12 @@ import android.view.WindowManager;
 
 public class TheShipsActivity extends Activity {
 	static int currentview = R.layout.main;
+	static int stan = 0;
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -26,6 +26,14 @@ public class TheShipsActivity extends Activity {
 				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		setContentView(R.layout.main);
 	}
+	
+	
+	/**
+	 * £atwy       =  1
+	 * Trudny      =  2
+	 * Stykaja     = 10
+	 * Nie stykaja = 20
+	 */
 	
 	public void koniecgry() {
 		AlertDialog.Builder bilder = new AlertDialog.Builder(this);
