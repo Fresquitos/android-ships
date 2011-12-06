@@ -28,10 +28,6 @@ class pole {
 	}
 }
 
-class Maszt1 {
-	pole punkt;
-}
-
 public class TheShipsActivity extends Activity {
 	static int previousview = 0;
 	static int stan = 0;
@@ -127,6 +123,14 @@ public class TheShipsActivity extends Activity {
 	public void mysetContentViewGridship() {
 		previousview = 3;
 		setContentView(R.layout.shipgridchoose);
+		int[] rids = {R.id.a0 , R.id.a1 , R.id.a2 , R.id.a3 , R.id.a4 , R.id.a5 , R.id.a6 , R.id.a7 , R.id.a8 , R.id.a9
+					, R.id.a10, R.id.a11, R.id.a12, R.id.a13, R.id.a14, R.id.a15, R.id.a16, R.id.a17, R.id.a18, R.id.a19
+					, R.id.a20, R.id.a21, R.id.a22, R.id.a23, R.id.a24, R.id.a25, R.id.a26, R.id.a27, R.id.a28, R.id.a29
+					, R.id.a30, R.id.a31, R.id.a32, R.id.a33, R.id.a34, R.id.a35, R.id.a36, R.id.a37, R.id.a38, R.id.a39
+					, R.id.a40, R.id.a41, R.id.a42, R.id.a43, R.id.a44, R.id.a45, R.id.a46, R.id.a47, R.id.a48, R.id.a49
+					, R.id.a50, R.id.a51, R.id.a52, R.id.a53, R.id.a54, R.id.a55, R.id.a56, R.id.a57, R.id.a58, R.id.a59
+					, R.id.a60, R.id.a61, R.id.a62, R.id.a63, R.id.a64, R.id.a65, R.id.a66, R.id.a67, R.id.a68, R.id.a69
+					, R.id.a70, R.id.a71, R.id.a72, R.id.a73, R.id.a74, R.id.a75, R.id.a76, R.id.a77, R.id.a78, R.id.a79};
 		
 	}
 	
@@ -141,7 +145,7 @@ public class TheShipsActivity extends Activity {
 				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		
 		mysetContentViewMain();
-
+		
 	}
 	
 
