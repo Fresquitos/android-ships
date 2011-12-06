@@ -17,10 +17,11 @@ class pole {
 	public Button field;
 	public int state;
 	/**state:
-	 * 0 - not clicked
-	 * 1 - pudlo
+	 * 0 - empty
+	 * 1 - ship
 	 * 2 - trafiony
-	 * 3 - zatopiony
+	 * 3 - pudalo
+	 * 4 - zatopiony
 	 */
 	public pole(View v) {
 		this.field = (Button)v;
@@ -130,7 +131,13 @@ public class TheShipsActivity extends Activity {
 					, R.id.a40, R.id.a41, R.id.a42, R.id.a43, R.id.a44, R.id.a45, R.id.a46, R.id.a47, R.id.a48, R.id.a49
 					, R.id.a50, R.id.a51, R.id.a52, R.id.a53, R.id.a54, R.id.a55, R.id.a56, R.id.a57, R.id.a58, R.id.a59
 					, R.id.a60, R.id.a61, R.id.a62, R.id.a63, R.id.a64, R.id.a65, R.id.a66, R.id.a67, R.id.a68, R.id.a69
-					, R.id.a70, R.id.a71, R.id.a72, R.id.a73, R.id.a74, R.id.a75, R.id.a76, R.id.a77, R.id.a78, R.id.a79};
+					, R.id.a70, R.id.a71, R.id.a72, R.id.a73, R.id.a74, R.id.a75, R.id.a76, R.id.a77, R.id.a78, R.id.a79
+					, R.id.a80, R.id.a81, R.id.a82, R.id.a83, R.id.a84, R.id.a85, R.id.a86, R.id.a87, R.id.a88, R.id.a89
+					, R.id.a90, R.id.a91, R.id.a92, R.id.a93, R.id.a94, R.id.a95, R.id.a96, R.id.a97, R.id.a98, R.id.a99};
+		Button[] fields = new Button[100];
+		for(int i = 0; i < 100; i++)
+			fields[i] = (Button)findViewById(rids[i]);
+		
 		
 	}
 	
