@@ -12,8 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
         android:background="@drawable/button_start"
-        android:text="Singleplayer" 
-        android:onClick="singleplayer_to_difficulty" />
+        android:text="Singleplayer" />
 
     <Button
         android:id="@+id/button_multiplayer"

@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
         android:background="@drawable/button_start"
-        android:text="Easy" />
+        android:text="Easy"/>
 
     <Button
         android:id="@+id/button_hard"
@@ -23,6 +23,6 @@
         android:layout_below="@+id/button_easy"
         android:layout_marginTop="35dp"
         android:background="@drawable/button_start"
-        android:text="Hard" />
+        android:text="Hard"/>
 
 </RelativeLayout>

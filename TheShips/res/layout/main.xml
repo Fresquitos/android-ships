@@ -19,7 +19,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
         android:background="@drawable/button_start"
-        android:onClick="main_to_choose"
         android:text="Start" />
 
     <Button
@@ -29,7 +28,6 @@
         android:layout_below="@+id/buttonstart"
         android:layout_marginTop="32dp"
         android:background="@drawable/button_start"
-        android:onClick="statistics"
         android:text="Statystyki" />
 
 </RelativeLayout>
