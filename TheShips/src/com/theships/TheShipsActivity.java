@@ -8,23 +8,82 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 
 public class TheShipsActivity extends Activity {
-	static int currentview = R.layout.main;
+	static int previousview = 0;
 	static int stan = 0;
+	
+	/** PreviousView stany:
+	 * 0 - brak poprzedniego ekranu (wyjscie)
+	 * 1 - main
+	 * 2 - Gamerchoose
+	 * 3 - Difficultychoose
+	 */
+	
+	public void mysetContentViewMain() {
+		setContentView(R.layout.main);
+		previousview = 0;
+		Button button_start = (Button)findViewById(R.id.buttonstart);
+		button_start.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				previousview = 1;
+				mysetContentViewGamerchoose();
+			}
+		});
+		Button button_stats = (Button)findViewById(R.id.button_statystyki);
+		button_stats.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				previousview = 1;
+				setContentView(R.layout.statistics);
+			}
+		});
+	}
+	
+	public void mysetContentViewGamerchoose() {
+		previousview = 1;
+		setContentView(R.layout.gamerchoose);
+		Button button_single = (Button)findViewById(R.id.button_oneplayer);
+		button_single.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				previousview = 2;
+				mysetContentViewDifficultychoose();
+			}
+		});
+	}
+	
+	public void mysetContentViewDifficultychoose() {
+		previousview = 2;
+		setContentView(R.layout.difficultychoose);
+		Button button_easy = (Button)findViewById(R.id.button_easy);
+		button_easy.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				previousview = 3;
+			}
+		});
+		Button button_hard = (Button)findViewById(R.id.button_hard);
+		button_hard.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				previousview = 3;
+			}
+		});
+	}
+	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
 				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-		setContentView(R.layout.main);
+		
+		mysetContentViewMain();
+
 	}
 	
 	
@@ -49,22 +108,6 @@ public class TheShipsActivity extends Activity {
 		AlertDialog alert = bilder.create();
 		alert.show();
 	}
-
-	public void main_to_choose(View w) {
-		currentview = R.layout.gamerchoose;
-		setContentView(currentview);
-		
-	}
-
-	public void singleplayer_to_difficulty(View w) {
-		currentview = R.layout.difficultychoose;
-		setContentView(currentview);
-	}
-
-	public void statistics(View w) {
-		currentview = R.layout.statistics;
-		setContentView(currentview);
-	}
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -86,25 +129,24 @@ public class TheShipsActivity extends Activity {
 	
 	@Override
 	public void onBackPressed() {
-		switch(currentview) {
-		case R.layout.gamerchoose :
-			currentview = R.layout.main;
-			setContentView(currentview);
+		switch(previousview) {
+		case 1 :
+			mysetContentViewMain();
 			break;
-		case R.layout.difficultychoose :
-			currentview = R.layout.gamerchoose;
-			setContentView(currentview);
+		case 2 :
+			mysetContentViewGamerchoose();
 			break;
-		case R.layout.statistics :
-			currentview = R.layout.main;
-			setContentView(currentview);
+		case 3:
+			mysetContentViewDifficultychoose();
 			break;
-		case R.layout.main :
+		case 0 :
 			koniecgry();
 			break;
 		}
 		return;
 	}
+	
+
 }
  
 
