@@ -23,6 +23,12 @@ public class TheShipsActivity extends Activity {
 	 * 2 - Gamerchoose
 	 * 3 - Difficultychoose
 	 */
+	/** Stan: 
+	 * £atwy       =  1
+	 * Trudny      =  2
+	 * Stykaja     = 10
+	 * Nie stykaja = 20
+	 */
 	
 	public void mysetContentViewMain() {
 		setContentView(R.layout.main);
@@ -86,14 +92,7 @@ public class TheShipsActivity extends Activity {
 
 	}
 	
-	
-	/**
-	 * £atwy       =  1
-	 * Trudny      =  2
-	 * Stykaja     = 10
-	 * Nie stykaja = 20
-	 */
-	
+
 	public void koniecgry() {
 		AlertDialog.Builder bilder = new AlertDialog.Builder(this);
 		bilder.setMessage("Are you sure you want to exit?").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -145,7 +144,6 @@ public class TheShipsActivity extends Activity {
 		}
 		return;
 	}
-	
 
 }
  
