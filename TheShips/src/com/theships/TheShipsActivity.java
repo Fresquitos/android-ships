@@ -67,12 +67,37 @@ public class TheShipsActivity extends Activity {
 		Button button_easy = (Button)findViewById(R.id.button_easy);
 		button_easy.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				stan = 1;
 				previousview = 3;
+				mysetContentViewShipmode();
 			}
 		});
 		Button button_hard = (Button)findViewById(R.id.button_hard);
 		button_hard.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				stan = 2;
+				previousview = 3;
+				mysetContentViewShipmode();
+			}
+		});
+	}
+	
+	public void mysetContentViewShipmode() {
+		previousview = 3;
+		setContentView(R.layout.shipmodechoose);
+		Button button_styk = (Button)findViewById(R.id.button_styk);
+		Button button_nstyk = (Button)findViewById(R.id.button_nstyk);
+		button_styk.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				if(stan<10)
+					stan += 10;
+				previousview = 3;
+			}
+		});
+		button_nstyk.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				if(stan<10)
+					stan += 20;
 				previousview = 3;
 			}
 		});
