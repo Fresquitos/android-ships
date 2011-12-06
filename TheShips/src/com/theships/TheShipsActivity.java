@@ -15,9 +15,21 @@ import android.widget.Button;
 
 class pole {
 	public Button field;
+	public int state;
+	/**state:
+	 * 0 - not clicked
+	 * 1 - pudlo
+	 * 2 - trafiony
+	 * 3 - zatopiony
+	 */
 	public pole(View v) {
-		field = (Button)v;
+		this.field = (Button)v;
+		this.state = 0;
 	}
+}
+
+class Maszt1 {
+	pole punkt;
 }
 
 public class TheShipsActivity extends Activity {
