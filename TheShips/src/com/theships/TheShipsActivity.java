@@ -13,6 +13,13 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
+class pole {
+	public Button field;
+	public pole(View v) {
+		field = (Button)v;
+	}
+}
+
 public class TheShipsActivity extends Activity {
 	static int previousview = 0;
 	static int stan = 0;
@@ -92,6 +99,7 @@ public class TheShipsActivity extends Activity {
 				if(stan<10)
 					stan += 10;
 				previousview = 3;
+				mysetContentViewGridship();
 			}
 		});
 		button_nstyk.setOnClickListener(new OnClickListener() {
@@ -99,8 +107,15 @@ public class TheShipsActivity extends Activity {
 				if(stan<10)
 					stan += 20;
 				previousview = 3;
+				mysetContentViewGridship();
 			}
 		});
+	}
+	
+	public void mysetContentViewGridship() {
+		previousview = 3;
+		setContentView(R.layout.shipgridchoose);
+		
 	}
 	
 	/** Called when the activity is first created. */
