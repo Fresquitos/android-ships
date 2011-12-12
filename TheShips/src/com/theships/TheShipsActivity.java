@@ -62,8 +62,18 @@ public class TheShipsActivity extends Activity {
 				mysetContentViewDifficultychoose();
 			}
 		});
+		
+		Button button_multi = (Button)findViewById(R.id.button_multiplayer);
+		button_multi.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				previousview = 2;
+				setContentView(R.layout.multiplayer);
+			}
+		});
+		
 	}
 	
+			
 	public void mysetContentViewDifficultychoose() {
 		previousview = 2;
 		setContentView(R.layout.difficultychoose);
