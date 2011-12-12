@@ -12,22 +12,9 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import com.theships.Field;
+import com.theships.Ship;
 
-/**class pole {
-	public Button field;
-	public int state;
-	*state:
-	 * 0 - empty
-	 * 1 - ship
-	 * 2 - trafiony
-	 * 3 - pudalo
-	 * 4 - zatopiony
-	 *
-	public pole(View v) {
-		this.field = (Button)v;
-		this.state = 0;
-	}
-} */
 
 public class TheShipsActivity extends Activity {
 	static int previousview = 0;
@@ -134,10 +121,7 @@ public class TheShipsActivity extends Activity {
 					, R.id.a70, R.id.a71, R.id.a72, R.id.a73, R.id.a74, R.id.a75, R.id.a76, R.id.a77, R.id.a78, R.id.a79
 					, R.id.a80, R.id.a81, R.id.a82, R.id.a83, R.id.a84, R.id.a85, R.id.a86, R.id.a87, R.id.a88, R.id.a89
 					, R.id.a90, R.id.a91, R.id.a92, R.id.a93, R.id.a94, R.id.a95, R.id.a96, R.id.a97, R.id.a98, R.id.a99};
-	/*	pole[] fields = new pole[100];
-		for(int i = 0; i < 100; i++)
-			fields[i] = new pole(findViewById(rids[i]));
-		*/
+	
 		
 	}
 	
