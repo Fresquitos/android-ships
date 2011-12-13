@@ -62,9 +62,6 @@ public class TheShipsActivity extends Activity {
 				mysetContentViewDifficultychoose();
 			}
 		});
-		
-		
-		
 		Button button_multi = (Button)findViewById(R.id.button_multiplayer);
 		button_multi.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
