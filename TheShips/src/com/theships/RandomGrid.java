@@ -3,6 +3,7 @@ package com.theships;
 import java.util.Random;
 
 import android.view.View;
+import android.widget.Button;
 
 public class RandomGrid {
 	private Ship[] ships;
@@ -18,9 +19,30 @@ public class RandomGrid {
 		this.matrix = new int[11][11];
 		this.ships = new Ship[10];
 		this.count = 0;
-		for(int i = 0; i < 10; i++)
+		for(int i = 0; i < 10; i++) {
 			for(int j = 0; j < 10; j++)
 				matrix[i][j] = _free;
+		}
+	/**	for(int i = 0; i < 100; i++) {
+			Button temp = (Button)rids[i];
+			temp.setBackgroundResource(R.drawable.regular);
+		} */
+	}
+	
+	public void clearGrid() {
+		for(int i = 0; i < 100; i++) {
+			Button temp = (Button)rids[i];
+			temp.setBackgroundResource(R.drawable.regular);
+	//		temp.setClickable(false); <= naprawia problem z klikaniem
+			temp = null;
+		}
+		for(int i = 0; i < 10; i++) {
+			for(int j = 0; j < 10; j++)
+				matrix[i][j] = _free;
+		}
+	/*	for(int i = 0; i < count; i++)
+			ships[i].Destroy(); */
+		count = 0;
 	}
 	
 	public boolean isEmpty(int x, int y) {
@@ -69,14 +91,14 @@ public class RandomGrid {
 						this.matrix[y + i][x] = 1;
 					}
 				}
-				ships[count] = new Ship(nr, temp, temp2);
-				ships[count].setShipState(R.drawable.zatopiony);
+				ships[count] = new Ship(nr, temp, temp2, true);
 				count++;
 			}
 		}
 	}
 	
 	public void randomize() {
+		clearGrid();
 		for(int i = 1; i < 5; i++) {
 			for(int j = 5 - i; j > 0; j--)
 				insertShip(i);
