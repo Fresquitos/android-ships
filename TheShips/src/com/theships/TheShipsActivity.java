@@ -63,6 +63,8 @@ public class TheShipsActivity extends Activity {
 			}
 		});
 		
+		
+		
 		Button button_multi = (Button)findViewById(R.id.button_multiplayer);
 		button_multi.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -73,7 +75,6 @@ public class TheShipsActivity extends Activity {
 		
 	}
 	
-			
 	public void mysetContentViewDifficultychoose() {
 		previousview = 2;
 		setContentView(R.layout.difficultychoose);
@@ -131,7 +132,8 @@ public class TheShipsActivity extends Activity {
 					, R.id.a70, R.id.a71, R.id.a72, R.id.a73, R.id.a74, R.id.a75, R.id.a76, R.id.a77, R.id.a78, R.id.a79
 					, R.id.a80, R.id.a81, R.id.a82, R.id.a83, R.id.a84, R.id.a85, R.id.a86, R.id.a87, R.id.a88, R.id.a89
 					, R.id.a90, R.id.a91, R.id.a92, R.id.a93, R.id.a94, R.id.a95, R.id.a96, R.id.a97, R.id.a98, R.id.a99};
-	
+		//Field f = new Field(findViewById(rids[0]), 0, Field._empty);
+		//Ship s = new Ship(3, new View[]{findViewById(rids[0]), findViewById(rids[10]), findViewById(rids[20])}, new int[]{0, 10, 20});
 		
 	}
 	
