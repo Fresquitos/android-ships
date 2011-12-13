@@ -8,6 +8,12 @@ public class Ship {
 	private int length;
 	private boolean isSink;
 	
+/*	public void Destroy() {
+		for(int i = 0; i < length; i++)
+			fields[i].Destroy();
+		fields = null;
+	} */
+	
 	public Ship(int l, View[] v, int[] nr) {
 		this.length= l;
 		this.fields = new Field[this.length];
@@ -22,6 +28,14 @@ public class Ship {
 				}
 			}
 		});*/
+	}
+	
+	public Ship(int l, View[] v, int[] nr, boolean fake) {
+		this.length = l;
+		this.fields = new Field[this.length];
+		for(int i = 0; i < this.length; i++) {
+			fields[i] = new Field(v[i], nr[i], true);
+		}
 	}
 	
 	public int getLength() {
@@ -40,14 +54,18 @@ public class Ship {
 		return !isSink;
 	}
 	
-	public void setShipState(int bg) {
+	public void setFakeShipState(int bg) {
 		for(int i = 0; i < this.length; i++) {
-			this.fields[i].setstate(Field._ship);
 			this.fields[i].getButton().setBackgroundResource(bg);
 		}
 	}
 	
 	public void setShipState() {
-		setShipState(R.drawable.regular);
+		for(int i = 0; i < this.length; i++)
+			this.fields[i].setstate(Field._ship);
+	}
+	
+	public Field getField(int nr) {
+		return this.fields[nr];
 	}
 }

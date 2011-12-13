@@ -18,6 +18,12 @@ public class Field {
 	public Button getButton() {
 		return this.button;
 	}
+
+/**	public void Destroy() {
+		setstate(Field._empty);
+		this.button = null;
+		
+	} */
 	
 	public Field(View v, int nr, int state) {
 		this.nr = nr;
@@ -29,6 +35,12 @@ public class Field {
 		setButton(v);
 		this.nr = nr;
 		setstate(Field._empty);
+	}
+	
+	public Field(View v, int nr, boolean fake) {
+		this.button = (Button)v;
+		this.nr = nr;
+		setstate(Field._sink);
 	}
 	
 	public void setButton(View v) {
