@@ -39,4 +39,15 @@ public class Ship {
 	public boolean getLiveState() {
 		return !isSink;
 	}
+	
+	public void setShipState(int bg) {
+		for(int i = 0; i < this.length; i++) {
+			this.fields[i].setstate(Field._ship);
+			this.fields[i].getButton().setBackgroundResource(bg);
+		}
+	}
+	
+	public void setShipState() {
+		setShipState(R.drawable.regular);
+	}
 }
