@@ -132,16 +132,14 @@ public class TheShipsActivity extends Activity {
 		final View[] views = new View[100];
 		for(int i = 0; i < 100; i++)
 			views[i] = findViewById(rids[i]);
+		
 		Button button_random = (Button)findViewById(R.id.button_random);
+		final RandomGrid rGrid = new RandomGrid(views);
 		button_random.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				new RandomGrid(views).randomize();
+				rGrid.randomize();
 			}
 		});
-		
-		
-		//Field f = new Field(findViewById(rids[0]), 0, Field._empty);
-		//Ship s = new Ship(3, new View[]{findViewById(rids[0]), findViewById(rids[10]), findViewById(rids[20])}, new int[]{0, 10, 20});
 		
 	}
 	

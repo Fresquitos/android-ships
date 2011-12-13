@@ -7,7 +7,7 @@ import android.widget.Button;
 
 public class RandomGrid {
 	private Ship[] ships;
-	private View[] rids;
+	private final View[] rids;
 	private int[][] matrix;
 	private int count;
 	
@@ -23,25 +23,18 @@ public class RandomGrid {
 			for(int j = 0; j < 10; j++)
 				matrix[i][j] = _free;
 		}
-	/**	for(int i = 0; i < 100; i++) {
-			Button temp = (Button)rids[i];
-			temp.setBackgroundResource(R.drawable.regular);
-		} */
 	}
 	
 	public void clearGrid() {
 		for(int i = 0; i < 100; i++) {
 			Button temp = (Button)rids[i];
 			temp.setBackgroundResource(R.drawable.regular);
-	//		temp.setClickable(false); <= naprawia problem z klikaniem
 			temp = null;
 		}
 		for(int i = 0; i < 10; i++) {
 			for(int j = 0; j < 10; j++)
 				matrix[i][j] = _free;
 		}
-	/*	for(int i = 0; i < count; i++)
-			ships[i].Destroy(); */
 		count = 0;
 	}
 	
@@ -55,7 +48,7 @@ public class RandomGrid {
 		return true;
 	}
 	
-	public void insertShip(int nr) {
+	public boolean insertShip(int nr) {
 		boolean inserted = false, direction;
 		int x, y;
 		while(!inserted) {
@@ -95,12 +88,13 @@ public class RandomGrid {
 				count++;
 			}
 		}
+		return inserted;
 	}
 	
 	public void randomize() {
 		clearGrid();
-		for(int i = 1; i < 5; i++) {
-			for(int j = 5 - i; j > 0; j--)
+		for(int i = 4; i > 0; i--) {
+			for(int j = i; j < 5; j++)
 				insertShip(i);
 		}
 	}

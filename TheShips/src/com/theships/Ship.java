@@ -8,12 +8,6 @@ public class Ship {
 	private int length;
 	private boolean isSink;
 	
-/*	public void Destroy() {
-		for(int i = 0; i < length; i++)
-			fields[i].Destroy();
-		fields = null;
-	} */
-	
 	public Ship(int l, View[] v, int[] nr) {
 		this.length= l;
 		this.fields = new Field[this.length];
