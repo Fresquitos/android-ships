@@ -38,9 +38,11 @@ public class Field {
 			public void onClick(View v) {
 				if(getState()==Field._empty) {
 					setState(Field._missed);
+					button.setClickable(false);
 				}
 				if(getState()==Field._ship) {
 					setState(Field._shot);
+					button.setClickable(false);
 				}
 			}
 		});
