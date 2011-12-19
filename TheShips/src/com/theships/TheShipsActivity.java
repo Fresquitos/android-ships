@@ -13,6 +13,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class TheShipsActivity extends Activity {
@@ -147,13 +148,17 @@ public class TheShipsActivity extends Activity {
 					Intent myIntent = new Intent(TheShipsActivity.this, BattleShipsGame.class);
 					TheShipsActivity.this.startActivity(myIntent);
 				} else {
-					
+					message();
 				}
 			}
 		});
 		
 	}
 	
+	public void message() {
+		Toast toast = Toast.makeText(getApplicationContext(), "Aby rozpoczac gre, wylosuj ustawienie statkow na planszy", Toast.LENGTH_SHORT);
+		toast.show();
+	}
 	
 	/** Called when the activity is first created. */
 	@Override
