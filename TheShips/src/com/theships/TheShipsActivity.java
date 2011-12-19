@@ -12,8 +12,6 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import com.theships.Field;
-import com.theships.Ship;
 
 
 public class TheShipsActivity extends Activity {
@@ -134,7 +132,7 @@ public class TheShipsActivity extends Activity {
 			views[i] = findViewById(rids[i]);
 		
 		Button button_random = (Button)findViewById(R.id.button_random);
-		final RandomGrid rGrid = new RandomGrid(views);
+		final Grid rGrid = new Grid(views);
 		button_random.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				rGrid.randomize();
