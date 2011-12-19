@@ -1096,4 +1096,15 @@
         android:background="@drawable/button_small"
         android:text="Randomize" />
 
+    <Button
+        android:id="@+id/button_next"
+        style="@style/ButtonSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/a99"
+        android:layout_marginBottom="27dp"
+        android:background="@drawable/button_small"
+        android:text="Graj!" />
+
 </RelativeLayout>

@@ -10,6 +10,7 @@ public class Grid {
 	private final View[] rids;
 	private int[][] matrix;
 	private int count;
+	private boolean ready = false;
 	private final boolean isAbstract;
 	
 	private static final int _free = 0;
@@ -116,6 +117,11 @@ public class Grid {
 			for(int j = i; j < 5; j++)
 				insertShip(i);
 		}
+		this.ready = true;
+	}
+	
+	public boolean isReady() {
+		return this.ready; 
 	}
 	
 	

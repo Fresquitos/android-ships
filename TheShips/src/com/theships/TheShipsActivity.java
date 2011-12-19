@@ -3,6 +3,7 @@ package com.theships;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -139,7 +140,20 @@ public class TheShipsActivity extends Activity {
 			}
 		});
 		
+		Button button_play = (Button)findViewById(R.id.button_next);
+		button_play.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				if(rGrid.isReady()) {
+					Intent myIntent = new Intent(TheShipsActivity.this, BattleShipsGame.class);
+					TheShipsActivity.this.startActivity(myIntent);
+				} else {
+					
+				}
+			}
+		});
+		
 	}
+	
 	
 	/** Called when the activity is first created. */
 	@Override
