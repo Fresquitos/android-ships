@@ -25,4 +25,13 @@
         android:background="@drawable/button_start"
         android:text="Multiplayer" />
 
+    <TextView
+        android:id="@+id/opponent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="57dp"
+        android:text="Wybierz tryb gry" style="@style/Instructions"/>
+
 </RelativeLayout>

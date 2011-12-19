@@ -25,4 +25,13 @@
         android:background="@drawable/button_start"
         android:text="Hard"/>
 
+    <TextView
+        android:id="@+id/difficulty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
+        android:text="Wybierz poziom trudnosci" style="@style/Instructions"/>
+
 </RelativeLayout>
