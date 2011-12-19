@@ -1,7 +1,6 @@
 package com.theships;
 
 import android.view.View;
-import android.view.View.OnClickListener;
 
 public class Ship {
 	private Field[] fields;
@@ -30,6 +29,15 @@ public class Ship {
 		for(int i = 0; i < this.length; i++) {
 			fields[i] = new Field(v[i], nr[i], true);
 		}
+		this.isSink = false;
+	}
+	
+	public Ship(int l, int[] nr) {
+		this.length = l;
+		this.isSink = false;
+		this.fields = new Field[this.length];
+		for(int i = 0; i < this.length; i++)
+			fields[i] = new Field(nr[i], Field._ship);
 	}
 	
 	public int getLength() {
@@ -38,7 +46,7 @@ public class Ship {
 	
 	public void updateState() {
 		for(int i = 0; i < this.length; i++) {
-			if(fields[i].getstate() != Field._shot) 
+			if(fields[i].getState() != Field._shot) 
 				this.isSink = false;
 		}
 		this.isSink = true;
@@ -56,7 +64,7 @@ public class Ship {
 	
 	public void setShipState() {
 		for(int i = 0; i < this.length; i++)
-			this.fields[i].setstate(Field._ship);
+			this.fields[i].setState(Field._ship);
 	}
 	
 	public Field getField(int nr) {
