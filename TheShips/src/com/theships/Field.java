@@ -56,6 +56,10 @@ public class Field {
 		return state;
 	}
 	
+	public int getnr() {
+		return this.nr;
+	}
+	
 	public void setState(int s) {
 		int t = R.drawable.regular;
 		this.state = s;

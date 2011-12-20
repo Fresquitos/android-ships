@@ -146,6 +146,7 @@ public class TheShipsActivity extends Activity {
 			public void onClick(View v) {
 				if(rGrid.isReady()) {
 					Intent myIntent = new Intent(TheShipsActivity.this, BattleShipsGame.class);
+					myIntent.putExtra("ParsedGrid", rGrid.getParsedGrid());
 					TheShipsActivity.this.startActivity(myIntent);
 				} else {
 					message();

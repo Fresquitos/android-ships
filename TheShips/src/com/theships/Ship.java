@@ -40,6 +40,46 @@ public class Ship {
 			fields[i] = new Field(nr[i], Field._ship);
 	}
 	
+	public Ship(int l, int xs, int xe) {
+		this.length = l;
+		this.isSink = false;
+		this.fields = new Field[this.length];
+		for(int i = 0; i < this.length; i++) {
+			if(xe - xs == l - 1) 
+				fields[i] = new Field(xs + i, Field._ship);
+			if(xe - xs == (l - 1)*10)
+				fields[i] = new Field(xs + i*10, Field._ship);
+		}
+	}
+	
+	public Ship(int l, int xs, int xe, View[] v) {
+		this.length = l;
+		this.isSink = false;
+		this.fields = new Field[this.length];
+		for(int i = 0; i < this.length; i++) {
+			if(xe - xs == l - 1) 
+				fields[i] = new Field(v[xs + i], xs + i, Field._ship);
+			if(xe - xs == (l - 1)*10)
+				fields[i] = new Field(v[xs + i*10], xs + i*10, Field._ship);
+		}
+	}
+	
+	public Ship(int l, int xs, int xe, View[] v, boolean fake) {
+		this.length = l;
+		this.isSink = false;
+		this.fields = new Field[this.length];
+		for(int i = 0; i < this.length; i++) {
+			if(xe - xs == l - 1) 
+				fields[i] = new Field(v[xs + i], xs + i, true);
+			if(xe - xs == (l - 1)*10)
+				fields[i] = new Field(v[xs + i*10], xs + i*10, true);
+		}
+	}
+	
+	public int[] getParsedShip() {
+		return new int[]{this.length, this.fields[0].getnr(), this.fields[this.length-1].getnr()};
+	}
+	
 	public int getLength() {
 		return this.length;
 	}
