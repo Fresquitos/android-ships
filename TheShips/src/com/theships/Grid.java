@@ -7,11 +7,11 @@ import android.widget.Button;
 
 public class Grid {
 	private Ship[] ships;
-	private final View[] rids;
+	private View[] rids;
 	private int[][] matrix;
 	private int count;
 	private boolean ready = false;
-	private final boolean isAbstract;
+	private boolean isAbstract;
 	
 	private static final int _free = 0;
 	private static final int _used = 1;
@@ -38,6 +38,32 @@ public class Grid {
 		this(null, true);
 	}
 	
+	public Grid(int[] parsedGrid) {
+		for(int i = 0; i < 10; i++) 
+			ships[i] = new Ship(parsedGrid[i*3], parsedGrid[i*3 + 1], parsedGrid[i*3] +2);
+	}
+	
+	public Grid(int[] parsedGrid, View[] rids) {
+		for(int i = 0; i < 10; i++) 
+			ships[i] = new Ship(parsedGrid[i*3], parsedGrid[i*3 + 1], parsedGrid[i*3] +2, rids);
+	}
+	
+	public Grid(int[] parsedGrid, View[] rids, boolean fake) {
+		for(int i = 0; i < 10; i++) 
+			ships[i] = new Ship(parsedGrid[i*3], parsedGrid[i*3 + 1], parsedGrid[i*3] +2, rids, true);
+	}
+	
+	public int[] getParsedGrid() {
+		int[] temp = new int[30];
+		int k = 0;
+		for(int i = 0; i < 10; i++) {
+			int[] t = this.ships[i].getParsedShip();
+			for(int j = 0; j < 3; j++) {
+				temp[k++] = t[j];
+			}
+		}
+		return temp;
+	}
 	
 	public void clearGrid() {
 		if(!this.isAbstract)
@@ -53,6 +79,13 @@ public class Grid {
 		count = 0;
 	}
 	
+	public int[][] getMatrix() {
+		return matrix;
+	}
+	
+	public int[] parseGrid() {
+		return new int[5];
+	}
 	
 	public boolean isEmpty(int x, int y) {
 		for(int i = -1; i < 2; i++) {
