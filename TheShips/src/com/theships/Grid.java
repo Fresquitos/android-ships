@@ -39,18 +39,35 @@ public class Grid {
 	}
 	
 	public Grid(int[] parsedGrid) {
+		this.ships = new Ship[10];
+		this.matrix = new int[11][11];
+		this.count = 0;
 		for(int i = 0; i < 10; i++) 
-			ships[i] = new Ship(parsedGrid[i*3], parsedGrid[i*3 + 1], parsedGrid[i*3] +2);
+			ships[i] = new Ship(parsedGrid[i*3], parsedGrid[i*3 + 1], parsedGrid[i*3 +2]);
 	}
 	
 	public Grid(int[] parsedGrid, View[] rids) {
+		this.ships = new Ship[10];
+		this.count = 0;
+		this.matrix = new int[11][11];
+		this.rids = rids;
+		this.isAbstract = false;
 		for(int i = 0; i < 10; i++) 
-			ships[i] = new Ship(parsedGrid[i*3], parsedGrid[i*3 + 1], parsedGrid[i*3] +2, rids);
+			ships[i] = new Ship(parsedGrid[i*3], parsedGrid[i*3 + 1], parsedGrid[i*3 +2], rids);
 	}
 	
 	public Grid(int[] parsedGrid, View[] rids, boolean fake) {
-		for(int i = 0; i < 10; i++) 
-			ships[i] = new Ship(parsedGrid[i*3], parsedGrid[i*3 + 1], parsedGrid[i*3] +2, rids, true);
+		this.ships = new Ship[10];
+		this.count = 0;
+		this.matrix = new int[11][11];
+		this.rids = rids;
+//		String msg = new String();
+		this.isAbstract = true;
+		for(int i = 0; i < 10; i++){ 
+//			msg = parsedGrid[i*3] + " " + parsedGrid[i*3 + 1] + " " + parsedGrid[i*3 + 2]+ " ";
+//			Log.v("Statek "+i, msg);
+			ships[i] = new Ship(parsedGrid[i*3], parsedGrid[i*3 + 1], parsedGrid[i*3 +2], rids, true);
+		}
 	}
 	
 	public int[] getParsedGrid() {
