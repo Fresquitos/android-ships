@@ -28,7 +28,7 @@ public class BattleShipsGame extends Activity {
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
 				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		
-		setContentView(R.layout.shipgridchoose);
+		setContentView(R.layout.gamegrid);
 		
 		int[] rids = {R.id.a0 , R.id.a1 , R.id.a2 , R.id.a3 , R.id.a4 , R.id.a5 , R.id.a6 , R.id.a7 , R.id.a8 , R.id.a9
 				, R.id.a10, R.id.a11, R.id.a12, R.id.a13, R.id.a14, R.id.a15, R.id.a16, R.id.a17, R.id.a18, R.id.a19
