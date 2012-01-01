@@ -44,7 +44,7 @@ public class BattleShipsGame extends Activity {
 	for(int i = 0; i < 100; i++)
 		views[i] = findViewById(rids[i]);
 	
-	Grid rGrid = new Grid(parsedGrid, views);
+	Grid rGrid = new Grid(parsedGrid, views, true);
 		
 		
 	}
