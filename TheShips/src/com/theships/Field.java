@@ -25,7 +25,7 @@ public class Field {
 	public Field(View v, int nr, boolean fake) {
 		this.button = (Button)v;
 		this.nr = nr;
-		setState(Field._ship);
+		setState(Field._myship);
 	}
 	
 	public Field(int nr, int state) {
