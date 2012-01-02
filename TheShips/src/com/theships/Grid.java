@@ -83,12 +83,11 @@ public class Grid {
 	}
 	
 	public void clearGrid() {
-		if(!this.isAbstract)
-			for(int i = 0; i < 100; i++) {
+		for(int i = 0; i < 100; i++) {
 				Button temp = (Button)rids[i];
 				temp.setBackgroundResource(R.drawable.button_field);
 				temp = null;
-			}
+		}
 		for(int i = 0; i < 10; i++) {
 			for(int j = 0; j < 10; j++)
 				matrix[i][j] = Grid._free;
@@ -151,10 +150,10 @@ public class Grid {
 						this.matrix[y + i][x] = 1;
 					}
 				}
-				if(!isAbstract)
+				if(isAbstract)
 					ships[shipcounter] = new Ship(nr, temp, temp2, true);
 				else
-					ships[shipcounter] = new Ship(nr, temp2);
+					ships[shipcounter] = new Ship(nr, temp, temp2);
 				shipcounter++;
 			}
 		}
