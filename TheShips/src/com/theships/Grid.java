@@ -100,8 +100,8 @@ public class Grid {
 		return matrix;
 	}
 	
-	public int[] parseGrid() {
-		return new int[5];
+	public int getCount() {
+		return count;
 	}
 	
 	public boolean isEmpty(int x, int y) {
