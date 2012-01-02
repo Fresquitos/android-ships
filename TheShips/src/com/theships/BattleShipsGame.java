@@ -52,10 +52,15 @@ public class BattleShipsGame extends Activity {
 				, R.id.a90, R.id.a91, R.id.a92, R.id.a93, R.id.a94, R.id.a95, R.id.a96, R.id.a97, R.id.a98, R.id.a99};
 		
 	final View[] views = new View[100];
-	for(int i = 0; i < 100; i++)
+	final View[] views2 = new View[100];
+	for(int i = 0; i < 100; i++) {
 		views[i] = findViewById(rids[i]);
+		views2[i] = findViewById(rids2[i]);
+	}
 	
 	Grid rGrid = new Grid(parsedGrid, views, true);
+	Grid rGrid2 = new Grid(views2);
+	rGrid2.randomize();
 	String msg = new String(rGrid.getShipCounter()+"");
 	Log.v("Statek ", msg);
 		
