@@ -134,7 +134,7 @@ public class TheShipsActivity extends Activity {
 			views[i] = findViewById(rids[i]);
 		
 		Button button_random = (Button)findViewById(R.id.button_random);
-		final Grid rGrid = new Grid(views);
+		final Grid rGrid = new Grid(views, true);
 		button_random.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				rGrid.randomize();
