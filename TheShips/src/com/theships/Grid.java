@@ -6,15 +6,15 @@ import android.view.View;
 import android.widget.Button;
 
 public class Grid {
-	private Ship[] ships;
-	private View[] rids;
-	private int[][] matrix;
-	private int shipcounter;
+	protected Ship[] ships;
+	protected View[] rids;
+	protected int[][] matrix;
+	protected int shipcounter;
 	private boolean ready = false;
-	private boolean isAbstract;
+	protected boolean isAbstract;
 	
-	private static final int _free = 0;
-	private static final int _used = 1;
+	public static final int _free = 0;
+	public static final int _used = 1;
 	
 	public Grid(View[] rids, boolean isAbstract) { 
 		this.rids = rids;
