@@ -41,14 +41,14 @@ public class Grid {
 	public Grid(int[] parsedGrid) {
 		this.ships = new Ship[10];
 		this.matrix = new int[11][11];
-		this.shipcounter = 0;
+		this.shipcounter = 10;
 		for(int i = 0; i < 10; i++) 
 			ships[i] = new Ship(parsedGrid[i*3], parsedGrid[i*3 + 1], parsedGrid[i*3 +2]);
 	}
 	
 	public Grid(int[] parsedGrid, View[] rids) {
 		this.ships = new Ship[10];
-		this.shipcounter = 0;
+		this.shipcounter = 10;
 		this.matrix = new int[11][11];
 		this.rids = rids;
 		this.isAbstract = false;
@@ -58,7 +58,7 @@ public class Grid {
 	
 	public Grid(int[] parsedGrid, View[] rids, boolean fake) {
 		this.ships = new Ship[10];
-		this.shipcounter = 0;
+		this.shipcounter = 10;
 		this.matrix = new int[11][11];
 		this.rids = rids;
 //		String msg = new String();
