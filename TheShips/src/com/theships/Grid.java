@@ -9,7 +9,7 @@ public class Grid {
 	private Ship[] ships;
 	private View[] rids;
 	private int[][] matrix;
-	private int count;
+	private int shipcounter;
 	private boolean ready = false;
 	private boolean isAbstract;
 	
@@ -20,7 +20,7 @@ public class Grid {
 		this.rids = rids;
 		this.matrix = new int[11][11];
 		this.ships = new Ship[10];
-		this.count = 0;
+		this.shipcounter = 0;
 		for(int i = 0; i < 10; i++) {
 			for(int j = 0; j < 10; j++)
 				matrix[i][j] = Grid._free;
@@ -41,14 +41,14 @@ public class Grid {
 	public Grid(int[] parsedGrid) {
 		this.ships = new Ship[10];
 		this.matrix = new int[11][11];
-		this.count = 0;
+		this.shipcounter = 0;
 		for(int i = 0; i < 10; i++) 
 			ships[i] = new Ship(parsedGrid[i*3], parsedGrid[i*3 + 1], parsedGrid[i*3 +2]);
 	}
 	
 	public Grid(int[] parsedGrid, View[] rids) {
 		this.ships = new Ship[10];
-		this.count = 0;
+		this.shipcounter = 0;
 		this.matrix = new int[11][11];
 		this.rids = rids;
 		this.isAbstract = false;
@@ -58,7 +58,7 @@ public class Grid {
 	
 	public Grid(int[] parsedGrid, View[] rids, boolean fake) {
 		this.ships = new Ship[10];
-		this.count = 0;
+		this.shipcounter = 0;
 		this.matrix = new int[11][11];
 		this.rids = rids;
 //		String msg = new String();
@@ -93,15 +93,15 @@ public class Grid {
 			for(int j = 0; j < 10; j++)
 				matrix[i][j] = Grid._free;
 		}
-		count = 0;
+		shipcounter = 0;
 	}
 	
 	public int[][] getMatrix() {
 		return matrix;
 	}
 	
-	public int getCount() {
-		return count;
+	public int getShipCounter() {
+		return shipcounter;
 	}
 	
 	public boolean isEmpty(int x, int y) {
@@ -152,10 +152,10 @@ public class Grid {
 					}
 				}
 				if(!isAbstract)
-					ships[count] = new Ship(nr, temp, temp2, true);
+					ships[shipcounter] = new Ship(nr, temp, temp2, true);
 				else
-					ships[count] = new Ship(nr, temp2);
-				count++;
+					ships[shipcounter] = new Ship(nr, temp2);
+				shipcounter++;
 			}
 		}
 		return inserted;

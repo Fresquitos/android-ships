@@ -4,14 +4,13 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 
 public class BattleShipsGame extends Activity {
 
@@ -57,6 +56,8 @@ public class BattleShipsGame extends Activity {
 		views[i] = findViewById(rids[i]);
 	
 	Grid rGrid = new Grid(parsedGrid, views, true);
+	String msg = new String(rGrid.getShipCounter()+"");
+	Log.v("Statek ", msg);
 		
 		
 	}
