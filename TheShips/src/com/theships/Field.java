@@ -14,6 +14,7 @@ public class Field {
 	public static final int _missed = 2;
 	public static final int _shot = 3;
 	public static final int _sink = 4;
+	public static final int _myship = 5;
 	
 	public Field(View v, int nr, int state) {
 		this.nr = nr;
@@ -24,7 +25,7 @@ public class Field {
 	public Field(View v, int nr, boolean fake) {
 		this.button = (Button)v;
 		this.nr = nr;
-		setState(Field._sink);
+		setState(Field._ship);
 	}
 	
 	public Field(int nr, int state) {
@@ -75,6 +76,9 @@ public class Field {
 			break;
 		case Field._sink :
 			t = R.drawable.zatopiony;
+			break;
+		case Field._myship:
+			t = R.drawable.ship;
 			break;
 		}
 		if(this.button != null)
