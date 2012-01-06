@@ -14,7 +14,7 @@ public class Game {
 		this.pc = pc;
 	}
 	
-	public void init() {
+	private void init() {
 		pc.randomize();
 		Ship[] statki = pc.getShips();
 		for(int i = 0; i < statki.length; i++) {
@@ -36,21 +36,35 @@ public class Game {
 								}
 							}
 						}
+						pc.makeMove(gracz);
 					}
 				});
 			}
 		}
 		for(int i = 0; i < 10; i++) {
 			for(int j = 0; j < 10; j++) {
-				if(pc.getMatrix()[i][j] == 0)
-					new Field(pc.getRids()[i*10 + j], i*10 + j, Field._empty);
+				if(pc.getMatrix()[i][j] == 0) {
+					final Field test = new Field(pc.getRids()[i*10 + j], i*10 + j, Field._empty);
+					test.getButton().setOnClickListener(new OnClickListener() {
+						public void onClick(View v) {
+							if(test.getState()==Field._empty) {
+								test.setState(Field._missed);
+								test.getButton().setClickable(false);
+							}
+							if(test.getState()==Field._ship) {
+								test.setState(Field._shot);
+								test.getButton().setClickable(false);
+							}
+							pc.makeMove(gracz);
+						}
+					});
+				}
 			}
 		}
 	}
 
 	
 	public void startGame() {
-		
-	//	pc.init();
+		init();
 	}
 }
