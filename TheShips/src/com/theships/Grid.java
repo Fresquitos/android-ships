@@ -42,8 +42,15 @@ public class Grid {
 		this.ships = new Ship[10];
 		this.matrix = new int[11][11];
 		this.shipcounter = 10;
-		for(int i = 0; i < 10; i++) 
+		for(int i = 0; i < 10; i++) {
 			ships[i] = new Ship(parsedGrid[i*3], parsedGrid[i*3 + 1], parsedGrid[i*3 +2]);
+			for(int j = 0; j < parsedGrid[i*3]; j++) {
+				if(parsedGrid[i*3 + 2] - parsedGrid[i*3 + 1] == parsedGrid[i*3] - 1) 
+					matrix[(parsedGrid[i*3 + 1] + j)/10][(parsedGrid[i*3 + 1] + j)%10] = 1;
+				if(parsedGrid[i*3 + 2] - parsedGrid[i*3 + 1] == (parsedGrid[i*3] - 1)*10) 
+					matrix[(parsedGrid[i*3 + 1] + j*10)/10][(parsedGrid[i*3 + 1] + j*10)%10] = 1;
+			}
+		}
 	}
 	
 	public Grid(int[] parsedGrid, View[] rids) {
@@ -52,8 +59,15 @@ public class Grid {
 		this.matrix = new int[11][11];
 		this.rids = rids;
 		this.isAbstract = false;
-		for(int i = 0; i < 10; i++) 
+		for(int i = 0; i < 10; i++) {
 			ships[i] = new Ship(parsedGrid[i*3], parsedGrid[i*3 + 1], parsedGrid[i*3 +2], rids);
+			for(int j = 0; j < parsedGrid[i*3]; j++) {
+				if(parsedGrid[i*3 + 2] - parsedGrid[i*3 + 1] == parsedGrid[i*3] - 1) 
+					matrix[(parsedGrid[i*3 + 1] + j)/10][(parsedGrid[i*3 + 1] + j)%10] = 1;
+				if(parsedGrid[i*3 + 2] - parsedGrid[i*3 + 1] == (parsedGrid[i*3] - 1)*10) 
+					matrix[(parsedGrid[i*3 + 1] + j*10)/10][(parsedGrid[i*3 + 1] + j*10)%10] = 1;
+			}
+		}
 	}
 	
 	public Grid(int[] parsedGrid, View[] rids, boolean fake) {
@@ -67,6 +81,12 @@ public class Grid {
 //			msg = parsedGrid[i*3] + " " + parsedGrid[i*3 + 1] + " " + parsedGrid[i*3 + 2]+ " ";
 //			Log.v("Statek "+i, msg);
 			ships[i] = new Ship(parsedGrid[i*3], parsedGrid[i*3 + 1], parsedGrid[i*3 +2], rids, true);
+			for(int j = 0; j < parsedGrid[i*3]; j++) {
+				if(parsedGrid[i*3 + 2] - parsedGrid[i*3 + 1] == parsedGrid[i*3] - 1) 
+					matrix[(parsedGrid[i*3 + 1] + j)/10][(parsedGrid[i*3 + 1] + j)%10] = 1;
+				if(parsedGrid[i*3 + 2] - parsedGrid[i*3 + 1] == (parsedGrid[i*3] - 1)*10) 
+					matrix[(parsedGrid[i*3 + 1] + j*10)/10][(parsedGrid[i*3 + 1] + j*10)%10] = 1;
+			}
 		}
 	}
 	
@@ -141,12 +161,12 @@ public class Grid {
 				int[] temp2 = new int[nr];
 				for(int i = 0; i < nr; i++) {
 					if(direction) {
-						temp[i] = rids[x + y*10 + i*10];
-						temp2[i] = x + y*10 + i*10;
+						temp[i] = rids[x*10 + y + i];
+						temp2[i] = x*10 + y + i;
 						this.matrix[x][y + i] = 1;
 					} else {
-						temp[i] = rids[y + i + x*10];
-						temp2[i] = y + i + x*10;
+						temp[i] = rids[y*10 + i*10 + x];
+						temp2[i] = y*10 + i*10 + x;
 						this.matrix[y + i][x] = 1;
 					}
 				}

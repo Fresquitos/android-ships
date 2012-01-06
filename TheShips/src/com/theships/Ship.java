@@ -1,6 +1,7 @@
 package com.theships;
 
 import android.view.View;
+import android.view.View.OnClickListener;
 
 public class Ship {
 	private Field[] fields;
@@ -14,13 +15,21 @@ public class Ship {
 			fields[i] = new Field(v[i], nr[i], Field._ship);
 		}
 		this.isSink = false;
-	/*	fields[0].getButton().setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				for(int i = 0; i < getLength(); i++) {
-					fields[i].setstate(Field._sink)
+		for(int i = 0; i < length; i++) {
+			final Field temp = fields[i];
+			temp.getButton().setOnClickListener(new OnClickListener() {
+				public void onClick(View v) {
+					temp.getButton().setClickable(false);
+					if(temp.getState() == Field._ship) {
+						temp.setState(Field._shot);
+						updateState();
+						if(isSink)
+							for(int j = 0; j < length; j++)
+								fields[j].setState(Field._sink);
+					}
 				}
-			}
-		});*/
+			});
+		}
 	}
 	
 	public Ship(int l, View[] v, int[] nr, boolean fake) {
@@ -95,14 +104,16 @@ public class Ship {
 	
 	public void updateState() {
 		for(int i = 0; i < this.length; i++) {
-			if(fields[i].getState() != Field._shot) 
+			if(fields[i].getState() != Field._shot) { 
 				this.isSink = false;
+				return;
+			}
 		}
 		this.isSink = true;
 	}
 	
-	public boolean getLiveState() {
-		return !isSink;
+	public boolean getSinkState() {
+		return isSink;
 	}
 	
 	public void setFakeShipState(int bg) {
