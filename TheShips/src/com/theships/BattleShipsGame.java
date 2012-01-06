@@ -60,11 +60,13 @@ public class BattleShipsGame extends Activity {
 	
 	Player rGrid = new Player(parsedGrid, views, true);
 	AIPlayer rGrid2 = new AIPlayer(views2);
-	rGrid2.randomize();
+	Game theGame = new Game(rGrid, rGrid2);
+	/*rGrid2.randomize();
 	String msg = new String(rGrid.getShipCounter()+"");
 	Log.v("Statek ", msg);
-	rGrid2.init();
-		
+	rGrid2.init();*/
+	theGame.init();
+	theGame.startGame();
 		
 	}
 	
