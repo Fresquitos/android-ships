@@ -193,5 +193,14 @@ public class Grid {
 		return this.ready; 
 	}
 	
+	public Ship[] getShips() {
+		return ships;
+	}
+
+
+	public View[] getRids() {
+		return rids;
+	}
+	
 	
 }
