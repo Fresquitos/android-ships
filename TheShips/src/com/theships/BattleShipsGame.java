@@ -59,7 +59,7 @@ public class BattleShipsGame extends Activity {
 	}
 	
 	Player rGrid = new Player(parsedGrid, views, true);
-	Player rGrid2 = new Player(views2);
+	AIPlayer rGrid2 = new AIPlayer(views2);
 	rGrid2.randomize();
 	String msg = new String(rGrid.getShipCounter()+"");
 	Log.v("Statek ", msg);

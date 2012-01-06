@@ -9,4 +9,8 @@ public class AIPlayer extends Player {
 
 	}
 
+	public AIPlayer(View[] views2) {
+		super(views2);
+	}
+
 }

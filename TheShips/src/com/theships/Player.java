@@ -34,9 +34,11 @@ public class Player extends Grid {
 						if(temp2.getState() == Field._ship) {
 							temp2.setState(Field._shot);
 							temp.updateState();
-							if(temp.getSinkState())
+							if(temp.getSinkState()) {
 								for(int j = 0; j < temp.getLength(); j++)
 									temp.getField(j).setState(Field._sink);
+								shipcounter--;
+							}
 						}
 					}
 				});
