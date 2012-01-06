@@ -65,7 +65,6 @@ public class BattleShipsGame extends Activity {
 	String msg = new String(rGrid.getShipCounter()+"");
 	Log.v("Statek ", msg);
 	rGrid2.init();*/
-	theGame.init();
 	theGame.startGame();
 		
 	}

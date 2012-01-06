@@ -196,7 +196,7 @@ public class Grid {
 	public Ship[] getShips() {
 		return ships;
 	}
-
+	
 
 	public View[] getRids() {
 		return rids;
