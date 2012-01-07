@@ -10,7 +10,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="62dp"
-        android:text="Przegrales!" style="@style/FirstText"/>
+        android:text="Wygrales!" style="@style/FirstText"/>
 
 	<TextView
 	    android:id="@+id/losertxt"
