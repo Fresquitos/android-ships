@@ -142,10 +142,15 @@ public class TheShipsActivity extends Activity {
 		batman.setBackgroundResource(R.drawable.button_small);
 		batman.setText("test");
 		addContentView(batman, new ViewGroup.LayoutParams(100,100));*/
-		
+		Button button_test = (Button)findViewById(R.id.button_test);
 		Button button_random = (Button)findViewById(R.id.button_random);
 		Button button_clear = (Button)findViewById(R.id.button_clear);
 		final Grid rGrid = new Grid(views, true);
+		button_test.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				rGrid.insertShip(1, 1, 8, false);
+			}
+		});
 		button_clear.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				rGrid.clearGrid();
