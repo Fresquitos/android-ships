@@ -2,7 +2,6 @@ package com.theships;
 
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 
 public class Player extends Grid {
 
