@@ -5,7 +5,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 public class Game {
-	@SuppressWarnings("unused")
 	private Player gracz;
 	private AIPlayer pc;
 	private int mode;
@@ -25,20 +24,23 @@ public class Game {
 				final Field pole = statek.getField(j);
 				pole.getButton().setOnClickListener(new OnClickListener() {
 					public void onClick(View v) {
-						pole.getButton().setClickable(false);
-						if(pole.getState() == Field._ship){
-							pole.setState(Field._shot);
-							statek.updateState();
-							if(statek.getSinkState()) {
-								for(int j = 0; j < statek.getLength(); j++)
-									statek.getField(j).setState(Field._sink);
-								pc.shipcounter--;
-								if(pc.shipcounter == 0) {
-									a.setContentView(R.layout.win);
+						koniec: {
+							pole.getButton().setClickable(false);
+							if(pole.getState() == Field._ship){
+								pole.setState(Field._shot);
+								statek.updateState();
+								if(statek.getSinkState()) {
+									for(int j = 0; j < statek.getLength(); j++)
+										statek.getField(j).setState(Field._sink);
+									pc.shipcounter--;
+									if(pc.shipcounter == 0) {
+										a.setContentView(R.layout.win);
+										break koniec;
+									}
 								}
 							}
+							pc.makeMove(gracz, mode, a);
 						}
-						pc.makeMove(gracz, mode, a);
 					}
 				});
 			}
