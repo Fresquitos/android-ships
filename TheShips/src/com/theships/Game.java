@@ -8,10 +8,12 @@ public class Game {
 	@SuppressWarnings("unused")
 	private Player gracz;
 	private AIPlayer pc;
+	private int mode;
 	
-	public Game(Player gracz, AIPlayer pc) {
+	public Game(Player gracz, AIPlayer pc, int mode) {
 		this.gracz = gracz;
 		this.pc = pc;
+		this.mode = mode;
 	}
 	
 	private void init() {
@@ -36,7 +38,7 @@ public class Game {
 								}
 							}
 						}
-						pc.makeMove(gracz);
+						pc.makeMove(gracz, mode);
 					}
 				});
 			}
@@ -55,7 +57,7 @@ public class Game {
 								test.setState(Field._shot);
 								test.getButton().setClickable(false);
 							}
-							pc.makeMove(gracz);
+							pc.makeMove(gracz, mode);
 						}
 					});
 				}
