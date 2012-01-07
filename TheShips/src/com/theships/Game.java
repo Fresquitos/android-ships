@@ -1,8 +1,8 @@
 package com.theships;
 
+import android.app.Activity;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Toast;
 
 public class Game {
 	@SuppressWarnings("unused")
@@ -16,7 +16,7 @@ public class Game {
 		this.mode = mode;
 	}
 	
-	private void init() {
+	private void init(final Activity a) {
 		pc.randomize();
 		Ship[] statki = pc.getShips();
 		for(int i = 0; i < statki.length; i++) {
@@ -34,11 +34,11 @@ public class Game {
 									statek.getField(j).setState(Field._sink);
 								pc.shipcounter--;
 								if(pc.shipcounter == 0) {
-									
+									a.setContentView(R.layout.win);
 								}
 							}
 						}
-						pc.makeMove(gracz, mode);
+						pc.makeMove(gracz, mode, a);
 					}
 				});
 			}
@@ -57,7 +57,7 @@ public class Game {
 								test.setState(Field._shot);
 								test.getButton().setClickable(false);
 							}
-							pc.makeMove(gracz, mode);
+							pc.makeMove(gracz, mode, a);
 						}
 					});
 				}
@@ -66,7 +66,7 @@ public class Game {
 	}
 
 	
-	public void startGame() {
-		init();
+	public void startGame(Activity a) {
+		init(a);
 	}
 }
