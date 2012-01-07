@@ -2,6 +2,7 @@ package com.theships;
 
 import java.util.Random;
 
+import android.app.Activity;
 import android.view.View;
 
 public class AIPlayer extends Player {
@@ -17,7 +18,7 @@ public class AIPlayer extends Player {
 		super(views2);
 	}
 	
-	public void makeMove(Player p, int mode) {
+	public void makeMove(Player p, int mode, Activity a) {
 		int x, y;
 		if(mode == _easy) {
 			do {
@@ -39,7 +40,7 @@ public class AIPlayer extends Player {
 									statek.getField(k).setState(Field._sink);
 								p.shipcounter--;
 								if(p.shipcounter == 0) {
-									
+									winAI(a);
 								}
 							}
 						}
@@ -51,5 +52,8 @@ public class AIPlayer extends Player {
 			
 		}
 	}
-	
+	public void winAI (Activity a) {
+		a.setContentView(R.layout.lost);
+	}
+
 }
