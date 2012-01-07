@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -44,12 +45,13 @@ public class TheShipsActivity extends Activity {
 			}
 		});
 		Button button_stats = (Button)findViewById(R.id.button_statystyki);
-		button_stats.setOnClickListener(new OnClickListener() {
+		button_stats.setBackgroundResource(R.drawable.button_inactive);
+	/*	button_stats.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				previousview = 1;
 				setContentView(R.layout.statistics);
 			}
-		});
+		});*/
 	}
 	
 	public void mysetContentViewGamerchoose() {
@@ -63,12 +65,13 @@ public class TheShipsActivity extends Activity {
 			}
 		});
 		Button button_multi = (Button)findViewById(R.id.button_multiplayer);
-		button_multi.setOnClickListener(new OnClickListener() {
+		button_multi.setBackgroundResource(R.drawable.button_inactive);
+		/*button_multi.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				previousview = 2;
 				setContentView(R.layout.multiplayer);
 			}
-		});
+		});*/
 		
 	}
 	
@@ -84,28 +87,30 @@ public class TheShipsActivity extends Activity {
 			}
 		});
 		Button button_hard = (Button)findViewById(R.id.button_hard);
-		button_hard.setOnClickListener(new OnClickListener() {
+		/*button_hard.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				stan = 2;
 				previousview = 3;
 				mysetContentViewShipmode();
 			}
-		});
+		});*/
+		button_hard.setBackgroundResource(R.drawable.button_inactive);
 	}
 	
 	public void mysetContentViewShipmode() {
 		previousview = 3;
 		setContentView(R.layout.shipmodechoose);
 		Button button_styk = (Button)findViewById(R.id.button_styk);
+		button_styk.setBackgroundResource(R.drawable.button_inactive);
 		Button button_nstyk = (Button)findViewById(R.id.button_nstyk);
-		button_styk.setOnClickListener(new OnClickListener() {
+		/*button_styk.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				if(stan<10)
 					stan += 10;
 				previousview = 3;
 				mysetContentViewGridship();
 			}
-		});
+		});*/
 		button_nstyk.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				if(stan<10)
@@ -134,7 +139,13 @@ public class TheShipsActivity extends Activity {
 			views[i] = findViewById(rids[i]);
 		
 		Button button_random = (Button)findViewById(R.id.button_random);
+		Button button_clear = (Button)findViewById(R.id.button_clear);
 		final Grid rGrid = new Grid(views, true);
+		button_clear.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				rGrid.clearGrid();
+			}
+		});
 		button_random.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				rGrid.randomize();
