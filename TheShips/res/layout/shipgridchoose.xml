@@ -1117,4 +1117,15 @@
         android:background="@drawable/button_small"
         android:text="Clear" />
 
+    <Button
+        android:id="@+id/button_test"
+        style="@style/ButtonSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button_random"
+        android:layout_below="@+id/button_random"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/button_small"
+        android:text="test" />
+
 </RelativeLayout>
