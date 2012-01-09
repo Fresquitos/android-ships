@@ -25,14 +25,22 @@
         android:background="@drawable/button_start"
         android:text="Hard"/>
 
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="170dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="0dp"
+        android:src="@drawable/headupsidedown" />
+
     <TextView
         android:id="@+id/difficulty"
         style="@style/Instructions"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="62dp"
+        android:layout_alignBottom="@+id/imageView1"
+        android:layout_toRightOf="@+id/imageView1"
+        android:layout_marginLeft="0dp"
         android:text="Wybierz poziom trudnosci" />
 
 </RelativeLayout>
