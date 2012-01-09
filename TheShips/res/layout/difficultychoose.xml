@@ -38,9 +38,11 @@
         style="@style/Instructions"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView1"
-        android:layout_toRightOf="@+id/imageView1"
-        android:layout_marginLeft="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/button_easy"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="42dp"
+        android:gravity="center"
         android:text="Wybierz poziom trudnosci" />
 
 </RelativeLayout>
