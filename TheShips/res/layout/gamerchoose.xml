@@ -3,6 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="95dp"
+        android:layout_height="160dp"
+        android:src="@drawable/headleft" />
+    
+    
     <Button
         android:id="@+id/button_oneplayer"
         style="@style/ButtonText"
@@ -34,10 +41,5 @@
         android:layout_marginTop="32dp"
         android:text="Wybierz tryb gry" style="@style/Instructions"/>
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="100dp"
-        android:layout_height="170dp"
-        android:src="@drawable/headleft" />
-
+    
 </RelativeLayout>
