@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" android:animationCache="true">
 
     <TextView
         android:id="@+id/logo"
@@ -37,5 +37,14 @@
         android:layout_marginTop="351dp"
         android:layout_marginLeft="100dp"
         android:src="@drawable/head" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="330dp"
+        android:text="Ahoj, szczurze ladowy! Czy jestes gotowy na pojedynek?!"
+        android:textAppearance="?android:attr/textAppearanceSmall" android:ellipsize="none"/>
 
 </RelativeLayout>
