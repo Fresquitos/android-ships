@@ -32,15 +32,15 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="255dp"
+        android:layout_width="215dp"
         android:layout_height="130dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="105dp"
         android:src="@drawable/head" />
 
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="142dp"
+        android:layout_width="155dp"
         android:layout_height="100dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
