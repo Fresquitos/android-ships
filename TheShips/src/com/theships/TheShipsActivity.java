@@ -136,13 +136,18 @@ public class TheShipsActivity extends Activity {
 		final View[] views = new View[100];
 		for(int i = 0; i < 100; i++)
 			views[i] = findViewById(rids[i]);
+		int[] rids2 = {R.id.ship4, R.id.ship3, R.id.ship2, R.id.ship1};
+		final View[] sets = new View[4];
+		for(int i = 0; i < 4; i++)
+			sets[i] = findViewById(rids2[i]);
 	/*	Button batman = new Button(getApplicationContext());
 		batman.setBackgroundResource(R.drawable.button_small);
 		batman.setText("test");
 		addContentView(batman, new ViewGroup.LayoutParams(100,100));*/
 		Button button_random = (Button)findViewById(R.id.button_random);
 		Button button_clear = (Button)findViewById(R.id.button_clear);
-		final Editor rGrid = new Editor(views, true);
+		final Editor rGrid = new Editor(views, true, sets);
+		//rGrid.init();
 		button_clear.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				rGrid.clearGrid();

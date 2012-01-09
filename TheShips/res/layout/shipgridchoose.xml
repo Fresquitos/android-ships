@@ -1118,7 +1118,7 @@
         android:text="Clear" />
 
     <Button
-        android:id="@+id/Button01"
+        android:id="@+id/ship4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/button_random"
@@ -1129,21 +1129,21 @@
         android:width="160px" />
 
     <Button
-        android:id="@+id/Button03"
+        android:id="@+id/ship3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/Button01"
-        android:layout_below="@+id/Button01"
+        android:layout_alignLeft="@+id/ship4"
+        android:layout_below="@+id/ship4"
         android:layout_marginTop="4dp"
         android:background="@drawable/ship3"
         android:height="40px"
         android:width="120px" />
 
     <Button
-        android:id="@+id/Button04"
+        android:id="@+id/ship2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Button03"
+        android:layout_below="@+id/ship3"
         android:layout_toLeftOf="@+id/a92"
         android:layout_marginTop="4dp"
         android:background="@drawable/ship2"
@@ -1151,10 +1151,10 @@
         android:width="80px" />
 
     <Button
-        android:id="@+id/Button02"
+        android:id="@+id/ship1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Button04"
+        android:layout_below="@+id/ship2"
         android:layout_toLeftOf="@+id/a91"
         android:layout_marginTop="4dp"
         android:background="@drawable/ship"

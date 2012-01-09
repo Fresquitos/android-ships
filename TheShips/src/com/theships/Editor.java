@@ -1,14 +1,37 @@
 package com.theships;
 
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 public class Editor extends Grid {
+	private Button[] sets;
+	private int[] shipcounters;
+	private int currentShipToAdd;
 
+	public Editor(View[] rids, boolean isAbstract, View[] sets) {
+		super(rids, isAbstract);
+		shipcounters = new int[4];
+		this.sets = new Button[4];
+		for(int i = 0 ; i < 4; i++) {
+			final int temp = i + 1;
+			this.sets[i] = (Button)sets[i];
+			this.sets[i].setOnClickListener(new OnClickListener() {
+				public void onClick(View v) {
+					currentShipToAdd = temp;
+				}
+			});
+		}
+	}
+	
+	
 	public Editor(View[] rids, boolean isAbstract) {
 		super(rids, isAbstract);
+		shipcounters = new int[4];
 	}
 	
 	public void init() {
+		
 		for(int i = 0; i < 100; i++) {
 			
 		}
@@ -48,6 +71,7 @@ public class Editor extends Grid {
 			else
 				ships[shipcounter] = new Ship(l, temp, temp2);
 			shipcounter++;
+			shipcounters[l-1]++;
 		}
 		
 		return inserted;

@@ -49,7 +49,7 @@ public class AIPlayer extends Player {
 			}
 		}
 		if(mode == _hard) {
-			
+			//hard mode
 		}
 	}
 	public void winAI (Activity a) {
