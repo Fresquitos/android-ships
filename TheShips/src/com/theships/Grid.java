@@ -103,6 +103,7 @@ public class Grid {
 	}
 	
 	public void clearGrid() {
+		ready = false;
 		for(int i = 0; i < 100; i++) {
 				Button temp = (Button)rids[i];
 				temp.setBackgroundResource(R.drawable.button_field);
