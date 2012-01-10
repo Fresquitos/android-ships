@@ -57,8 +57,15 @@ public class AIPlayer extends Player {
 				temp = prev;
 			}
 		}
-		for(int i = 0; i < 4 ; i++)
+		for(int i = 0; i < 4 ; i++) 
 			moves[i][13] = -1;
+		for(int j = 0; j < 4; j++)
+			for(int i = 0; i < 12; i++) {
+				int t = new Random().nextInt(12);
+				int tk = moves[j][i];
+				moves[j][i] = moves[j][t];
+				moves[j][t] = tk;
+			}
 	}
 	
 	public void makeMove(Player p, int mode, Activity a) {
