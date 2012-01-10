@@ -18,6 +18,7 @@ public class BattleShipsGame extends Activity {
 		super.onCreate(savedInstanceState);
 		Bundle extras = getIntent().getExtras();
 		int[] parsedGrid = extras.getIntArray("ParsedGrid");
+		int state = extras.getInt("state");
 
 		
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -59,7 +60,7 @@ public class BattleShipsGame extends Activity {
 	
 	Player rGrid = new Player(parsedGrid, views, true);
 	AIPlayer rGrid2 = new AIPlayer(views2);
-	Game theGame = new Game(rGrid, rGrid2, AIPlayer._easy);
+	Game theGame = new Game(rGrid, rGrid2, state == 21 ? AIPlayer._easy : AIPlayer._hard);
 	/*rGrid2.randomize();
 	String msg = new String(rGrid.getShipCounter()+"");
 	Log.v("Statek ", msg);

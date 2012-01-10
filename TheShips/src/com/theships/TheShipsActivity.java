@@ -86,14 +86,14 @@ public class TheShipsActivity extends Activity {
 			}
 		});
 		Button button_hard = (Button)findViewById(R.id.button_hard);
-		/*button_hard.setOnClickListener(new OnClickListener() {
+		button_hard.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				stan = 2;
 				previousview = 3;
 				mysetContentViewShipmode();
 			}
-		});*/
-		button_hard.setBackgroundResource(R.drawable.button_inactive);
+		});
+		//button_hard.setBackgroundResource(R.drawable.button_inactive);
 	}
 	
 	public void mysetContentViewShipmode() {
@@ -123,6 +123,7 @@ public class TheShipsActivity extends Activity {
 	public void mysetContentViewGridship() {
 		previousview = 3;
 		setContentView(R.layout.shipgridchoose);
+		
 		int[] rids = {R.id.a0 , R.id.a1 , R.id.a2 , R.id.a3 , R.id.a4 , R.id.a5 , R.id.a6 , R.id.a7 , R.id.a8 , R.id.a9
 					, R.id.a10, R.id.a11, R.id.a12, R.id.a13, R.id.a14, R.id.a15, R.id.a16, R.id.a17, R.id.a18, R.id.a19
 					, R.id.a20, R.id.a21, R.id.a22, R.id.a23, R.id.a24, R.id.a25, R.id.a26, R.id.a27, R.id.a28, R.id.a29
@@ -165,6 +166,7 @@ public class TheShipsActivity extends Activity {
 				if(rGrid.isReady()) {
 					Intent myIntent = new Intent(TheShipsActivity.this, BattleShipsGame.class);
 					myIntent.putExtra("ParsedGrid", rGrid.getParsedGrid());
+					myIntent.putExtra("state", stan);
 					TheShipsActivity.this.startActivity(myIntent);
 				} else {
 					message();
@@ -248,9 +250,3 @@ public class TheShipsActivity extends Activity {
 
 }
  
-
-
-/**
-Intent myIntent = new Intent(TheShipsActivity.this, BattleShipsGame.class);
-TheShipsActivity.this.startActivity(myIntent);
-*/
