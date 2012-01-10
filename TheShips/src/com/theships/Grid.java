@@ -10,7 +10,7 @@ public class Grid {
 	protected View[] rids;
 	protected int[][] matrix;
 	protected int shipcounter;
-	private boolean ready = false;
+	protected boolean ready = false;
 	protected boolean isAbstract;
 	
 	public static final int _free = 0;

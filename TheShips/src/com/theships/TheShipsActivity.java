@@ -136,7 +136,7 @@ public class TheShipsActivity extends Activity {
 		final View[] views = new View[100];
 		for(int i = 0; i < 100; i++)
 			views[i] = findViewById(rids[i]);
-		int[] rids2 = {R.id.ship4, R.id.ship3, R.id.ship2, R.id.ship1};
+		int[] rids2 = {R.id.ship1, R.id.ship2, R.id.ship3, R.id.ship4};
 		final View[] sets = new View[4];
 		for(int i = 0; i < 4; i++)
 			sets[i] = findViewById(rids2[i]);
