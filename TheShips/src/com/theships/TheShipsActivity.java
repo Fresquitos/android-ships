@@ -147,7 +147,7 @@ public class TheShipsActivity extends Activity {
 		Button button_random = (Button)findViewById(R.id.button_random);
 		Button button_clear = (Button)findViewById(R.id.button_clear);
 		final Editor rGrid = new Editor(views, true, sets);
-		//rGrid.init();
+		rGrid.init();
 		button_clear.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				rGrid.clearGrid();
