@@ -8,7 +8,7 @@ import android.widget.Button;
 public class Editor extends Grid {
 	private Button[] sets;
 	private int[] shipcounters;
-	private int currentShipToAdd;
+	private int currentShipToAdd = 0;
 	private boolean justAdding;
 	private boolean direction = true; //true - poziom
 	private int prevx, prevy;
@@ -44,16 +44,32 @@ public class Editor extends Grid {
 				public void onClick(View v) {
 					int x = q/10;
 					int y = q%10;
-					if(shipcounter<10) {
+					if((shipcounter<10)&&(currentShipToAdd>0)) {
 						if(justAdding) {
 								if(shipcounters[currentShipToAdd-1] < (5 - currentShipToAdd)) {
-									insertShip(x, y, currentShipToAdd, direction);
+									if(!insertShip(x, y, currentShipToAdd, direction)) {
+										shipcounter++;
+										shipcounters[currentShipToAdd-1]++;
+									}
 									prevx = x;
 									prevy = y;
 									updateButtons();
 							}
 						} else {
-							
+							boolean tempclear = clearShip(prevx, prevy, currentShipToAdd, direction);
+							if((prevx == x)&&(prevy==y))
+								direction = !direction;
+							boolean tempins = insertShip(x, y, currentShipToAdd, direction);
+							prevx = x;
+							prevy = y;
+							if((tempclear)&&(!tempins)) {
+								shipcounter++;
+								shipcounters[currentShipToAdd-1]++;
+							}
+							if((!tempclear)&&(tempins)) {
+								shipcounter--;
+								shipcounters[currentShipToAdd-1]--;
+							}
 						}
 						justAdding = false;
 					}
@@ -71,7 +87,13 @@ public class Editor extends Grid {
 	}
 	
 	
-	public void clearShip(int x, int y, int l, boolean direction) {
+	public boolean clearShip(int x, int y, int l, boolean direction) {
+		if(direction)
+			if(y + l > 10)
+				return false;
+		if(!direction)
+			if(x + l > 10)
+				return false;
 		for(int i = 0; i < l; i++) {
 			if(direction) {
 				this.matrix[x][y + i] = 0;
@@ -85,6 +107,7 @@ public class Editor extends Grid {
 		}
 		shipcounter--;
 		shipcounters[l-1]--;
+		return true;
 	}
 	
 	@Override
@@ -104,6 +127,7 @@ public class Editor extends Grid {
 			sets[i].setVisibility(View.VISIBLE);
 		}
 		shipcounter = 0;
+		currentShipToAdd = 0;
 	}
 	
 	public boolean insertShip(int x, int y, int l, boolean direction) {
@@ -146,8 +170,9 @@ public class Editor extends Grid {
 				ships[shipcounter] = new Ship(l, temp, temp2);
 			shipcounter++;
 			shipcounters[l-1]++;
+			if(shipcounter == 10)
+				ready = true;
 		}
-		
 		return inserted;
 	}
 
