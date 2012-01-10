@@ -44,31 +44,27 @@ public class Editor extends Grid {
 				public void onClick(View v) {
 					int x = q/10;
 					int y = q%10;
-					if((shipcounter<10)&&(currentShipToAdd>0)) {
-						if(justAdding) {
+					if(currentShipToAdd>0) {
+						if((shipcounter<10)&&(justAdding)) {
 								if(shipcounters[currentShipToAdd-1] < (5 - currentShipToAdd)) {
 									if(!insertShip(x, y, currentShipToAdd, direction)) {
 										shipcounter++;
 										shipcounters[currentShipToAdd-1]++;
-									}
+									} 
 									prevx = x;
 									prevy = y;
 									updateButtons();
 							}
-						} else {
+						} if(!justAdding) {
 							boolean tempclear = clearShip(prevx, prevy, currentShipToAdd, direction);
 							if((prevx == x)&&(prevy==y))
 								direction = !direction;
 							boolean tempins = insertShip(x, y, currentShipToAdd, direction);
 							prevx = x;
 							prevy = y;
-							if((tempclear)&&(!tempins)) {
+							if(!tempins) {
 								shipcounter++;
 								shipcounters[currentShipToAdd-1]++;
-							}
-							if((!tempclear)&&(tempins)) {
-								shipcounter--;
-								shipcounters[currentShipToAdd-1]--;
 							}
 						}
 						justAdding = false;
@@ -88,6 +84,8 @@ public class Editor extends Grid {
 	
 	
 	public boolean clearShip(int x, int y, int l, boolean direction) {
+		shipcounter--;
+		shipcounters[l-1]--;
 		if(direction)
 			if(y + l > 10)
 				return false;
@@ -105,8 +103,6 @@ public class Editor extends Grid {
 				temp.setBackgroundResource(R.drawable.button_field);
 			}
 		}
-		shipcounter--;
-		shipcounters[l-1]--;
 		return true;
 	}
 	
