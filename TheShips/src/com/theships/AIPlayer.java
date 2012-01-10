@@ -100,13 +100,14 @@ public class AIPlayer extends Player {
 			} else {
 				x = moves[mc][c]/10;
 				y = moves[mc][c]%10;
+				c++;
+				if(moves[mc][c] == -1) {
+					mc++;
+					c = 0;
+				}
 			}
 			shots[x][y] = 1;
-			c++;
-			if(moves[mc][c] == -1) {
-				mc++;
-				c = 0;
-			}
+			
 			if(p.getMatrix()[x][y] == 0) 
 				new Field(p.getRids()[x*10 + y], x*10 + y, Field._missed);
 			if(p.getMatrix()[x][y] == 1) {
