@@ -1073,6 +1073,17 @@
         android:height="40px"
         android:width="40px" />
 
+  <!--    <Button
+        android:id="@+id/a99"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/a98"
+        android:layout_alignBottom="@+id/a98"
+        android:layout_toRightOf="@+id/a98"
+        android:background="@drawable/button_field"
+        android:height="40px"
+        android:width="40px" /> -->
+    
     <Button
         android:id="@+id/a99"
         android:layout_width="wrap_content"
@@ -1083,6 +1094,7 @@
         android:background="@drawable/button_field"
         android:height="40px"
         android:width="40px" />
+       
 
     <Button
         android:id="@+id/b99"

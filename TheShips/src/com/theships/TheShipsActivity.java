@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,6 +20,8 @@ import android.widget.Toast;
 public class TheShipsActivity extends Activity {
 	static int previousview = 0;
 	static int stan = 0;
+	
+	
 	
 	/** PreviousView stany:
 	 * 0 - brak poprzedniego ekranu (wyjscie)
@@ -124,6 +127,9 @@ public class TheShipsActivity extends Activity {
 		previousview = 3;
 		setContentView(R.layout.shipgridchoose);
 		
+		DisplayMetrics scrsize = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(scrsize);
+		
 		int[] rids = {R.id.a0 , R.id.a1 , R.id.a2 , R.id.a3 , R.id.a4 , R.id.a5 , R.id.a6 , R.id.a7 , R.id.a8 , R.id.a9
 					, R.id.a10, R.id.a11, R.id.a12, R.id.a13, R.id.a14, R.id.a15, R.id.a16, R.id.a17, R.id.a18, R.id.a19
 					, R.id.a20, R.id.a21, R.id.a22, R.id.a23, R.id.a24, R.id.a25, R.id.a26, R.id.a27, R.id.a28, R.id.a29
@@ -135,12 +141,17 @@ public class TheShipsActivity extends Activity {
 					, R.id.a80, R.id.a81, R.id.a82, R.id.a83, R.id.a84, R.id.a85, R.id.a86, R.id.a87, R.id.a88, R.id.a89
 					, R.id.a90, R.id.a91, R.id.a92, R.id.a93, R.id.a94, R.id.a95, R.id.a96, R.id.a97, R.id.a98, R.id.a99};
 		final View[] views = new View[100];
-		for(int i = 0; i < 100; i++)
+		for(int i = 0; i < 100; i++) {
 			views[i] = findViewById(rids[i]);
+			views[i].getLayoutParams().height = scrsize.widthPixels/10;
+			views[i].getLayoutParams().width = scrsize.widthPixels/10;
+		}
 		int[] rids2 = {R.id.ship1, R.id.ship2, R.id.ship3, R.id.ship4};
 		final View[] sets = new View[4];
-		for(int i = 0; i < 4; i++)
+		for(int i = 0; i < 4; i++) {
 			sets[i] = findViewById(rids2[i]);
+			
+		}
 	/*	Button batman = new Button(getApplicationContext());
 		batman.setBackgroundResource(R.drawable.button_small);
 		batman.setText("test");

@@ -1,6 +1,5 @@
 package com.theships;
 
-import android.graphics.Color;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -46,25 +45,30 @@ public class Editor extends Grid {
 					int y = q%10;
 					if(currentShipToAdd>0) {
 						if((shipcounter<10)&&(justAdding)) {
+							prevx = 100;
+							prevy = 100;
 								if(shipcounters[currentShipToAdd-1] < (5 - currentShipToAdd)) {
 									if(!insertShip(x, y, currentShipToAdd, direction)) {
 										shipcounter++;
 										shipcounters[currentShipToAdd-1]++;
-									} 
-									prevx = x;
-									prevy = y;
+									} else {
+										prevx = x;
+										prevy = y;
+									}
 									updateButtons();
-							}
+								}
 						} if(!justAdding) {
 							boolean tempclear = clearShip(prevx, prevy, currentShipToAdd, direction);
 							if((prevx == x)&&(prevy==y))
 								direction = !direction;
 							boolean tempins = insertShip(x, y, currentShipToAdd, direction);
-							prevx = x;
-							prevy = y;
+							
 							if(!tempins) {
 								shipcounter++;
 								shipcounters[currentShipToAdd-1]++;
+							} else {
+								prevx = x;
+								prevy = y;
 							}
 						}
 						justAdding = false;
@@ -94,16 +98,33 @@ public class Editor extends Grid {
 				return false;
 		for(int i = 0; i < l; i++) {
 			if(direction) {
-				this.matrix[x][y + i] = 0;
-				Button temp = (Button)(rids[x*10 + y + i]);
-				temp.setBackgroundResource(R.drawable.button_field);
+				if(this.matrix[x][y + i] != 0) {
+					this.matrix[x][y + i] = 0;
+					Button temp = (Button)(rids[x*10 + y + i]);
+					temp.setBackgroundResource(R.drawable.button_field); 
+				}
 			} else {
-				this.matrix[x + i][y] = 0;
-				Button temp = (Button)(rids[x*10 + i*10 + y]);
-				temp.setBackgroundResource(R.drawable.button_field);
+				if(this.matrix[x + i][y] != 0) {
+					this.matrix[x + i][y] = 0;
+					Button temp = (Button)(rids[x*10 + i*10 + y]);
+					temp.setBackgroundResource(R.drawable.button_field);
+				}
 			}
 		}
 		return true;
+	}
+	
+	@Override
+	public void randomize() {
+		clearGrid();
+		for(int i = 4; i > 0; i--) {
+			for(int j = i; j < 5; j++) {
+				insertRandomShip(i);
+				shipcounters[i-1] = 9;
+			}
+		}
+		this.ready = true;
+		updateButtons();
 	}
 	
 	@Override

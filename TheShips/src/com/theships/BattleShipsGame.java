@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -28,6 +30,11 @@ public class BattleShipsGame extends Activity {
 				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		
 		setContentView(R.layout.gamegrid);
+		
+		DisplayMetrics scrsize = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(scrsize);
+		
+		
 		
 		int[] rids = {R.id.b0 , R.id.b1 , R.id.b2 , R.id.b3 , R.id.b4 , R.id.b5 , R.id.b6 , R.id.b7 , R.id.b8 , R.id.b9
 				, R.id.b10, R.id.b11, R.id.b12, R.id.b13, R.id.b14, R.id.b15, R.id.b16, R.id.b17, R.id.b18, R.id.b19
@@ -56,6 +63,11 @@ public class BattleShipsGame extends Activity {
 	for(int i = 0; i < 100; i++) {
 		views[i] = findViewById(rids[i]);
 		views2[i] = findViewById(rids2[i]);
+		views2[i].getLayoutParams().height = scrsize.widthPixels/10;
+		views2[i].getLayoutParams().width = scrsize.widthPixels/10;
+		views[i].getLayoutParams().height = scrsize.widthPixels/20;
+		views[i].getLayoutParams().width = scrsize.widthPixels/20;
+		
 	}
 	
 	Player rGrid = new Player(parsedGrid, views, true);
