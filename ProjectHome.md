@@ -1,0 +1,1 @@
+**Gra w statki** - możliwość gry Player vs. CPU lub Player vs. Player via Bluetooth. Projekt studencki w ramach przedmiotu "Inżynieria Oprogramowania".
